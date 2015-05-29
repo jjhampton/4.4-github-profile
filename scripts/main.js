@@ -1,34 +1,56 @@
 (function(){
   'use strict';
 
-  //Event handler assignment for button to redirect users to request GitHub access
-  $('button').on('click', function(e){
-    window.location.replace('https://github.com/login/oauth/authorize?client_id=b69b801883e5ccf58196');
-  });
+  function app(token){
+   $.ajax({
+     url: "https://api.github.com/user",
+     headers: {
+       "Authorization": "token " + token
+     }
+   }).then(function(user) {
+     console.log(user);
+     displayTitle(user);
+    //  displayNavbar(user);
+    //  displaySidebar(user);
+    //  displayContent(user);
+   });
+ }
+
+  function displayTitle(data) {
+    $('title').prepend(JST['title']({
+      username: data.login,
+      fullname: data.name
+    }));
+  }
+
+  // function displaySidebar(data) {
+  //
+  // }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret
   $(document).ready(function(e){
-    var code = window.location.href.match(/\?code=(.*)/)[1];
-    if(code) {
-      $.getJSON('http://localhost:9999/authenticate/'+code, function(data) {
-       console.log(data);
-      });
+    var token = localStorage.getItem('GITHUB_TOKEN');
+    $('body').prepend(JST['application']({loggedIn: !!token}));
+    if(token) {
+      app(token);
+    } else {
+      var matches = window.location.href.match(/\?code=(.*)/);
+      var code = matches && matches[1];
+      if(code) {
+        $.getJSON('http://localhost:9999/authenticate/'+code, function(data) {
+          localStorage.setItem('GITHUB_TOKEN', data.token);
+          window.location.replace('/');
+        });
+      }
     }
   });
 
-  $(document).ready(function(){
-    $.ajax({
-      url: "https://api.github.com/user",
-      headers: {
-        "Authorization": "token " + GITHUB_TOKEN
-      }
-    }).then(function(user) {
-      console.log(user);
-      app(user);
-    });
+  //Event handler assignment for button to redirect users to request GitHub access
+  $(document).on('click', '.login', function(e){
+    window.location.replace('https://github.com/login/oauth/authorize?client_id=b69b801883e5ccf58196');
   });
 
 
 
-  
+
 })();
