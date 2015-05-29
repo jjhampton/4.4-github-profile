@@ -24,10 +24,14 @@
   }
 
   function displayNavbar(data) {
-    $('body').prepend(JST['navbar']({
+    $('.main-container').append(JST['navbar']({
       username: data.login,
       avatar: data.avatar_url
     }));
+  }
+
+  function displaySidebar(data) {
+
   }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret

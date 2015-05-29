@@ -20,11 +20,21 @@ body {
   color: $base-font-color;
 }
 
-.container {
+.main-container {
   margin: 0 auto;
-  width: 980px;
+  width: 1000px;
 }
 
-.navbar {
+nav {
+  margin: 0 auto;
   height: 50px;
+  width: 100%;
+}
+
+sidebar {
+  width: 25%;
+}
+
+section.content {
+  width: 75%;
 }
