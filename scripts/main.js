@@ -10,7 +10,7 @@
    }).then(function(user) {
      console.log(user);
      displayTitle(user);
-    //  displayNavbar(user);
+     displayNavbar(user);
     //  displaySidebar(user);
     //  displayContent(user);
    });
@@ -23,9 +23,12 @@
     }));
   }
 
-  // function displaySidebar(data) {
-  //
-  // }
+  function displayNavbar(data) {
+    $('body').prepend(JST['navbar']({
+      username: data.login,
+      avatar: data.avatar_url
+    }));
+  }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret
   $(document).ready(function(e){

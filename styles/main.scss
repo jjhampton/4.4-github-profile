@@ -19,3 +19,12 @@ body {
   background-color: $base-background-color;
   color: $base-font-color;
 }
+
+.container {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.navbar {
+  height: 50px;
+}
