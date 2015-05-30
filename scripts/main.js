@@ -11,15 +11,32 @@
      console.log(user);
      displayTitle(user);
      displayNavbar(user);
-    //  displaySidebar(user);
+     displaySidebar(user);
+     $.ajax({
+       url: "https://api.github.com/user/starred",
+       headers: {
+         "Authorization": "token " + token
+       }
+     }).then(function(starred) {
+       displaySidebarStarred(starred);
+     });
+     $.ajax({
+       url: "https://api.github.com/user/orgs",
+       headers: {
+         "Authorization": "token " + token
+       }
+     }).then(function(organizations) {
+       console.log(organizations);
+       displaySidebarOrganizations(organizations);
+     });
     //  displayContent(user);
-   });
+  });
  }
 
   function displayTitle(data) {
     $('title').prepend(JST['title']({
+      fullname: data.name,
       username: data.login,
-      fullname: data.name
     }));
   }
 
@@ -31,7 +48,31 @@
   }
 
   function displaySidebar(data) {
+    $('.main-container').append(JST['sidebar']({
+      fullname: data.name,
+      username: data.login,
+      avatar: data.avatar_url,
+      location: data.location,
+      blog: data.blog,
+      joindate: data.created_at,
+      followers: data.followers,
+      following: data.following
+      // orgurl: , GET user/orgs object.url
+      // avatarurl: GET user/orgs object.avatar_url
+    }));
+  }
 
+  function displaySidebarStarred(data) {
+    $('.starred').append(JST['starred']({
+      starred: data.length
+    }));
+  }
+
+  function displaySidebarOrganizations(data) {
+    console.log("org data executed")
+    $('.organizations').prepend(JST['organizations']({
+      organizations: data
+    }));
   }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret

@@ -1,26 +1,23 @@
-<a href="https://www.github.com/account"><img src="{{avatar}}"></a>
-<section>
-  <h1>{{fullname}}</h1>
-  <h2>{{username}}</h2>
-</section>
-<section>
-  <ul>
-    <li><span class="octicon octicon-location"></span>{{location}}</li>
-    <li><span class="octicon octicon-link"></span><a href="{{blog}}">{{blog}}</a></li>
-    <li><span class="octicon octicon-clock"></span>{{joindate}}</li>
-  </ul>
-</section>
-<section>
-  <ul>
-    <a><span>{{followers}}</span><span>Followers</span></a>
-    <a><span>{{starred}}</span><span>Starred</span></a>
-    <a><span>{{following}}</span><span>Following</span></a>
-  </ul>
-</section>
-<section>
-  {{#each organizations}}
-    <h3>Organizations</h3>
-    <a href="orgurl"><img src="avatarurl"></a>
-    {{!mouseover orgname}}
-  {{/each}}
-</section>
+<sidebar>
+  <a href="https://www.github.com/account"><img src="{{avatar}}"></a>
+  <section>
+    <h1>{{fullname}}</h1>
+    <h2>{{username}}</h2>
+  </section>
+  <section>
+    <ul>
+      <li><span class="octicon octicon-location"></span>{{location}}</li>
+      <li><span class="octicon octicon-link"></span><a href="{{blog}}">{{blog}}</a></li>
+      <li><span class="octicon octicon-clock"></span><span>Joined on {{joindate}}</span></li>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <a href="https://github.com/{{username}}/followers"><span>{{followers}} </span><span>Followers</span></a>
+      <a href="https://github.com/stars"><span class="starred"></span><span>Starred</span></a>
+      <a href="https://github.com/{{username}}/following"><span>{{following}} </span><span>Following</span></a>
+    </ul>
+  </section>
+  <section class="organizations">
+  </section>
+</sidebar>
