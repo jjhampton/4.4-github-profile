@@ -54,12 +54,25 @@
       avatar: data.avatar_url,
       location: data.location,
       blog: data.blog,
-      joindate: data.created_at,
+      joindate: getDateFormat(data.created_at),
       followers: data.followers,
       following: data.following
       // orgurl: , GET user/orgs object.url
       // avatarurl: GET user/orgs object.avatar_url
     }));
+  }
+
+  function getDateFormat(datestring) {
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  // document.write("The current month is " + monthNames[d.getMonth()]);
+      var sidebarDate = new Date(datestring);
+      var day = sidebarDate.getDate();
+      var year = sidebarDate.getFullYear();
+      var month = sidebarDate.getMonth()+1;
+      sidebarDate = monthNames[month] + " " + day + ", " + year;
+      return sidebarDate;
   }
 
   function displaySidebarStarred(data) {
