@@ -1,0 +1,27 @@
+<section class="content">
+  <div type="tabs">
+    <ul>
+      <li><a href={{contributionsurl}}>Contributions</a></li>
+      <li><a href="{{contributionsurl}}?tab=repositories">Repositories</a></li>
+      <li><a href="{{contributionsurl}}?tab=activity">Public Activity</a></li>
+      <button class="edit-profile"><span class="octicon octicon-pencil"></span>Edit profile</button>
+    </ul>
+    <div class="repositories-filter">
+      <form class="repositories-search">
+        <input type="search" name="search-repos" placeholder="Find a repository...">
+        <input type="submit" name="submit" value="Send">
+      </form>
+      <ul class="repositories-filter-types">
+        <li><a href="{{contributionsurl}}?tab=repositories">All</a></li>
+        <li><a href="{{contributionsurl}}?tab=repositories">Public</a></li>
+        <li><a href="{{contributionsurl}}?tab=repositories">Private</a></li>
+        <li><a href="{{contributionsurl}}?tab=repositories">Sources</a></li>
+        <li><a href="{{contributionsurl}}?tab=repositories">Forks</a></li>
+        <li><a href="{{contributionsurl}}?tab=repositories">Mirrors</a></li>
+      </ul>
+      <button name="New">New</button>
+    </div>
+    <div class="repositories">
+    </div>
+  </div>
+</section>

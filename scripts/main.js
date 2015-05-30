@@ -2,16 +2,17 @@
   'use strict';
 
   function app(token){
+    var userData =
    $.ajax({
      url: "https://api.github.com/user",
      headers: {
        "Authorization": "token " + token
      }
    }).then(function(user) {
-     console.log(user);
      displayTitle(user);
      displayNavbar(user);
      displaySidebar(user);
+     displayContent(user);
      $.ajax({
        url: "https://api.github.com/user/starred",
        headers: {
@@ -20,18 +21,24 @@
      }).then(function(starred) {
        displaySidebarStarred(starred);
      });
-     $.ajax({
-       url: "https://api.github.com/user/orgs",
-       headers: {
-         "Authorization": "token " + token
-       }
-     }).then(function(organizations) {
-       console.log(organizations);
+    $.ajax({
+      url: "https://api.github.com/user/orgs",
+      headers: {
+        "Authorization": "token " + token
+      }
+    }).then(function(organizations) {
        displaySidebarOrganizations(organizations);
-     });
-    //  displayContent(user);
-  });
- }
+    });
+    $.ajax({
+      url: "https://api.github.com/user/repos",
+      headers: {
+        "Authorization": "token " + token
+      }
+    }).then(function(repositories) {
+      displayRepositories(repositories);
+    });
+   });
+  }
 
   function displayTitle(data) {
     $('title').prepend(JST['title']({
@@ -57,8 +64,6 @@
       joindate: getDateFormat(data.created_at),
       followers: data.followers,
       following: data.following
-      // orgurl: , GET user/orgs object.url
-      // avatarurl: GET user/orgs object.avatar_url
     }));
   }
 
@@ -82,10 +87,39 @@
   }
 
   function displaySidebarOrganizations(data) {
-    console.log("org data executed")
     $('.organizations').prepend(JST['organizations']({
       organizations: data
     }));
+  }
+
+  function displayContent(data) {
+    $('.main-container').append(JST['content']({
+      contributionsurl: data.html_url
+    }));
+  }
+
+  function displayRepositories(data) {
+    var updatedOrderRepoList = getArraySortedByUpdate(data);
+    $('.repositories').append(JST['repositories']({
+      repositories: updatedOrderRepoList
+    }));
+  }
+
+  function getArraySortedByUpdate(array) {
+    var sortedArray;
+    var newDate;
+
+    sortedArray = array.map(function(element) {
+      var newElement = element;
+      newElement.updatedAtDateObject = new Date(element.updated_at);
+      return newElement;
+    });
+    console.log(sortedArray);
+    sortedArray = sortedArray.sort(function(a,b) {
+      return b.updatedAtDateObject - a.updatedAtDateObject;
+    });
+    console.log(sortedArray);
+    return sortedArray;
   }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret
