@@ -2,42 +2,42 @@
   'use strict';
 
   function app(token){
-    var userData =
-   $.ajax({
-     url: "https://api.github.com/user",
-     headers: {
+    $.ajax({
+      url: "https://api.github.com/user",
+      headers: {
        "Authorization": "token " + token
-     }
-   }).then(function(user) {
-     displayTitle(user);
-     displayNavbar(user);
-     displaySidebar(user);
-     displayContent(user);
-     $.ajax({
-       url: "https://api.github.com/user/starred",
-       headers: {
-         "Authorization": "token " + token
-       }
-     }).then(function(starred) {
-       displaySidebarStarred(starred);
-     });
-    $.ajax({
-      url: "https://api.github.com/user/orgs",
-      headers: {
-        "Authorization": "token " + token
       }
-    }).then(function(organizations) {
-       displaySidebarOrganizations(organizations);
+    }).then(function(user) {
+      displayTitle(user);
+      displayNavbar(user);
+      displaySidebar(user);
+      displayContent(user);
+      displayFooter();
+      $.ajax({
+        url: "https://api.github.com/user/starred",
+        headers: {
+          "Authorization": "token " + token
+        }
+      }).then(function(starred) {
+        displaySidebarStarred(starred);
+      });
+      $.ajax({
+        url: "https://api.github.com/user/orgs",
+        headers: {
+          "Authorization": "token " + token
+        }
+      }).then(function(organizations) {
+         displaySidebarOrganizations(organizations);
+      });
+      $.ajax({
+        url: "https://api.github.com/user/repos",
+        headers: {
+          "Authorization": "token " + token
+        }
+      }).then(function(repositories) {
+        displayRepositories(repositories);
+      });
     });
-    $.ajax({
-      url: "https://api.github.com/user/repos",
-      headers: {
-        "Authorization": "token " + token
-      }
-    }).then(function(repositories) {
-      displayRepositories(repositories);
-    });
-   });
   }
 
   function displayTitle(data) {
@@ -162,6 +162,10 @@
       }
     }
     return timeFromNow;
+  }
+
+  function displayFooter() {
+    $('.main-container').append(JST['footer']());
   }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret

@@ -31,6 +31,9 @@ this["JST"]["content"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + alias3(((helper = (helper = helpers.contributionsurl || (depth0 != null ? depth0.contributionsurl : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"contributionsurl","hash":{},"data":data}) : helper)))
     + "?tab=repositories\">Mirrors</a></li>\n      </ul>\n      <button name=\"New\">New</button>\n    </div>\n    <div class=\"repositories\">\n    </div>\n  </div>\n</section>\n";
 },"useData":true});
+this["JST"]["footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<footer>\n  <ul>\n    <li><small>&copy; 2015 GitHub, Inc.</small></li>\n    <li><a href=\"https://github.com/site/terms\">Terms</a></li>\n    <li><a href=\"https://github.com/site/privacy\">Privacy</a></li>\n    <li><a href=\"https://github.com/site/security\">Security</a></li>\n    <li><a href=\"https://github.com/site/contact\">Contact</a></li>\n  </ul>\n  <span class=\"octicon octicon-mark-github\"></span>\n  <ul class=\"right\">\n    <li><a href=\"https://status.github.com\">Status</a></li>\n    <li><a href=\"https://developer.github.com\">API</a></li>\n    <li><a href=\"https://status.github.com\">Training</a></li>\n    <li><a href=\"https://status.github.com\">Shop</a></li>\n    <li><a href=\"https://github.com/blog\">Blog</a></li>\n    <li><a href=\"https://github.com/about\">About</a></li>\n  </ul>\n</footer>\n";
+},"useData":true});
 this["JST"]["navbar"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 

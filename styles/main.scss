@@ -113,10 +113,29 @@ section.content {
   list-style: none;
 }
 
-
-
-
-
 /*==========================================
 FOOTER
 ==========================================*/
+
+footer {
+  position: relative;
+  width: 100%;
+  list-style-type: none;
+}
+
+footer ul,
+footer li,
+footer span {
+  display: inline-block;
+  padding: 0;
+}
+
+footer span {
+  position: absolute;
+  left: 55%;
+  top: 16px;
+}
+
+footer ul.right {
+  float: right;
+}
