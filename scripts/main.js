@@ -111,7 +111,8 @@
 
     sortedArray = array.map(function(element) {
       var newElement = element;
-      newElement.updatedAtDateObject = new Date(element.updated_at);
+      newElement.updatedAtDateObject = new Date(element.pushed_at);
+      newElement.updatedFromNowValue = getUpdatedFromNowVal(newElement.updatedAtDateObject);
       return newElement;
     });
     console.log(sortedArray);
@@ -120,6 +121,47 @@
     });
     console.log(sortedArray);
     return sortedArray;
+  }
+
+  function getUpdatedFromNowVal(updatedDate) {
+    var timeFromNow;
+    var now = moment.utc();
+    var updatedDateUTC = moment.utc(updatedDate);
+    var nowDate = new Date(); // for last branch of if/else year comparison
+    var nowYear = nowDate.getFullYear(); // for last branch of if/else year comparison
+    var timeDifference = now - updatedDateUTC;
+    var options =  {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+    console.log("now is " + now);
+    console.log("updatedDateUTC is " + updatedDateUTC);
+    console.log(timeDifference);
+    timeDifference = Math.floor(timeDifference / 60000); //convert to minutes
+    console.log(timeDifference + " converted to minutes");
+
+    if (timeDifference <= 60) {
+      timeFromNow = timeDifference + " minutes ago";
+    }
+    else if (timeDifference > 60 && timeDifference <= 1440) {
+      timeDifference = Math.floor(timeDifference / 60); //convert to hours
+      timeFromNow = timeDifference + " hours ago";
+    }
+    else if (timeDifference > 1440 && timeDifference <= 43200) {
+      timeDifference = Math.floor(timeDifference / 1440); // convert to days
+      timeFromNow = timeDifference + " days ago";
+    }
+    else {
+      if (nowYear === updatedDate.getFullYear()) {
+        delete options.year;
+        timeFromNow = updatedDate.toLocaleDateString('en-US', options);
+      }
+      else {
+        timeFromNow = updatedDate.toLocaleDateString('en-US', options);
+      }
+    }
+    return timeFromNow;
   }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret

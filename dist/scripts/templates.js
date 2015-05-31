@@ -69,8 +69,8 @@ this["JST"]["repositories"] = Handlebars.template({"1":function(depth0,helpers,p
     + alias3(((helper = (helper = helpers.stargazers_count || (depth0 != null ? depth0.stargazers_count : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stargazers_count","hash":{},"data":data}) : helper)))
     + "</li>\n        <li><span class=\"octicon octicon-git-branch\"></span>"
     + alias3(((helper = (helper = helpers.forks || (depth0 != null ? depth0.forks : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"forks","hash":{},"data":data}) : helper)))
-    + "</li>\n      </ul>\n    </div>\n  </div>\n  <p class=\"repository-updated\">"
-    + alias3(((helper = (helper = helpers.updated_at || (depth0 != null ? depth0.updated_at : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"updated_at","hash":{},"data":data}) : helper)))
+    + "</li>\n      </ul>\n    </div>\n  </div>\n  <p class=\"repository-updated\">Updated "
+    + alias3(((helper = (helper = helpers.updatedFromNowValue || (depth0 != null ? depth0.updatedFromNowValue : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"updatedFromNowValue","hash":{},"data":data}) : helper)))
     + "</p>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
