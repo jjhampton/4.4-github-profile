@@ -96,6 +96,11 @@
     $('.main-container').append(JST['content']({
       contributionsurl: data.html_url
     }));
+    $("#tabs").tabs({
+      activate: function (event, ui) {
+        var active = $("#tabs").tabs("option", "active");
+      }
+    });
   }
 
   function displayRepositories(data) {

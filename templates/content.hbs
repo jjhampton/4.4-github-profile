@@ -1,27 +1,35 @@
 <section class="content">
-  <div type="tabs">
+  <div id="tabs">
     <ul>
-      <li><a href={{contributionsurl}}>Contributions</a></li>
-      <li><a href="{{contributionsurl}}?tab=repositories">Repositories</a></li>
-      <li><a href="{{contributionsurl}}?tab=activity">Public Activity</a></li>
+      <li><a href="#contributions">Contributions</a></li>
+      <li><a href="#repositories">Repositories</a></li>
+      <li><a href="#public-activity">Public Activity</a></li>
       <button class="edit-profile"><span class="octicon octicon-pencil"></span>Edit profile</button>
     </ul>
-    <div class="repositories-filter">
-      <form class="repositories-search">
-        <input type="search" name="search-repos" placeholder="Find a repository...">
-        <input type="submit" name="submit" value="Send">
-      </form>
-      <ul class="repositories-filter-types">
-        <li><a href="{{contributionsurl}}?tab=repositories">All</a></li>
-        <li><a href="{{contributionsurl}}?tab=repositories">Public</a></li>
-        <li><a href="{{contributionsurl}}?tab=repositories">Private</a></li>
-        <li><a href="{{contributionsurl}}?tab=repositories">Sources</a></li>
-        <li><a href="{{contributionsurl}}?tab=repositories">Forks</a></li>
-        <li><a href="{{contributionsurl}}?tab=repositories">Mirrors</a></li>
-      </ul>
-      <button name="New">New</button>
+    <div id="contributions">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
-    <div class="repositories">
+    <div id="repositories">
+      <div class="repositories-filter">
+        <form class="repositories-search">
+          <input type="search" name="search-repos" placeholder="Find a repository...">
+          <input type="submit" name="submit" value="Send">
+        </form>
+        <ul class="repositories-filter-types">
+          <li><a href="{{contributionsurl}}?tab=repositories">All</a></li>
+          <li><a href="{{contributionsurl}}?tab=repositories">Public</a></li>
+          <li><a href="{{contributionsurl}}?tab=repositories">Private</a></li>
+          <li><a href="{{contributionsurl}}?tab=repositories">Sources</a></li>
+          <li><a href="{{contributionsurl}}?tab=repositories">Forks</a></li>
+          <li><a href="{{contributionsurl}}?tab=repositories">Mirrors</a></li>
+        </ul>
+        <button name="New">New</button>
+      </div>
+      <div class="repositories">
+      </div>
+    </div>
+    <div id="public-activity">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </div>
 </section>
