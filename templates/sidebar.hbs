@@ -1,23 +1,21 @@
 <sidebar>
   <a href="https://www.github.com/account"><img src="{{avatar}}"></a>
-  <section>
+  <section class="sidebar-headers sidebar-sections">
     <h1>{{fullname}}</h1>
     <h2>{{username}}</h2>
   </section>
-  <section>
+  <section class="sidebar-demographics sidebar-sections">
     <ul>
-      <li><span class="octicon octicon-location"></span>{{location}}</li>
-      <li><span class="octicon octicon-link" ></span><a href="{{blog}}">{{blog}}</a></li>
-      <li><span class="octicon octicon-clock"></span><span>Joined on {{joindate}}</span></li>
+      <li><span class="octicon octicon-location sidebar-icons"></span>{{location}}</li>
+      <li><span class="octicon octicon-link sidebar-icons" ></span><a href="{{blog}}">{{blog}}</a></li>
+      <li><span class="octicon octicon-clock sidebar-icons"></span><span>Joined on {{joindate}}</span></li>
     </ul>
   </section>
-  <section>
-    <ul>
-      <a href="https://github.com/{{username}}/followers"><span>{{followers}} </span><span>Followers</span></a>
-      <a href="https://github.com/stars"><span class="starred"></span><span>Starred</span></a>
-      <a href="https://github.com/{{username}}/following"><span>{{following}} </span><span>Following</span></a>
-    </ul>
+  <section class="sidebar-stats sidebar-sections">
+    <a href="https://github.com/{{username}}/followers"><div class="sidebar-stats-number"><b>{{followers}}</b></div><div class="sidebar-stats-category">Followers</div></a>
+    <a href="https://github.com/stars"><div class="starred sidebar-stats-number"></div><div class= "sidebar-stats-category">Starred</div></a>
+    <a href="https://github.com/{{username}}/following"><div class="sidebar-stats-number"><b>{{following}}</b></div><div class="sidebar-stats-category">Following</div></a>
   </section>
-  <section class="organizations">
+  <section class="organizations sidebar-sections">
   </section>
 </sidebar><!--

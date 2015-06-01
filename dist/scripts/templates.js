@@ -4,7 +4,7 @@ this["JST"]["application"] = Handlebars.template({"1":function(depth0,helpers,pa
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"main-container ui-widget\">\n"
+  return "<div class=\"main-container\">\n"
     + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.loggedIn : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n";
 },"useData":true});
@@ -31,7 +31,7 @@ this["JST"]["footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"m
 this["JST"]["navbar"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<nav>\n  <div class=\"nav-container\">\n    <a href=\"https://github.com\"><span class=\"octicon octicon-mark-github\"></span></a>\n    <span class=\"nav-title\">REMIX</span>\n    <input type=\"search\" name=\"search-github\" placeholder=\" Search GitHub\">\n    <div class=\"navbar-general\">\n      <a href=\"https://github.com/explore\"><span>Explore</span></a>\n      <a href=\"https://gist.github.com\"><span>Gist</span></a>\n      <a href=\"https://github.com/blog\"><span>Blog</span></a>\n      <a href=\"https://help.github.com\"><span>Help</span></a>\n    </div>\n    <div class=\"navbar-userspecific\">\n        <a href=\"https://github.com/"
+  return "<nav>\n  <div class=\"nav-container\">\n    <a href=\"https://github.com\"><span class=\"octicon octicon-mark-github initial-logo\"></span></a>\n    <span class=\"nav-title\">REMIX</span>\n    <input type=\"search\" name=\"search-github\" placeholder=\" Search GitHub\">\n    <div class=\"navbar-general\">\n      <a href=\"https://github.com/explore\"><span>Explore</span></a>\n      <a href=\"https://gist.github.com\"><span>Gist</span></a>\n      <a href=\"https://github.com/blog\"><span>Blog</span></a>\n      <a href=\"https://help.github.com\"><span>Help</span></a>\n    </div>\n    <div class=\"navbar-userspecific\">\n        <a href=\"https://github.com/"
     + alias3(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"username","hash":{},"data":data}) : helper)))
     + "\"><img src=\""
     + alias3(((helper = (helper = helpers.avatar || (depth0 != null ? depth0.avatar : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"avatar","hash":{},"data":data}) : helper)))
@@ -79,33 +79,34 @@ this["JST"]["sidebar"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
 
   return "<sidebar>\n  <a href=\"https://www.github.com/account\"><img src=\""
     + alias3(((helper = (helper = helpers.avatar || (depth0 != null ? depth0.avatar : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"avatar","hash":{},"data":data}) : helper)))
-    + "\"></a>\n  <section>\n    <h1>"
+    + "\"></a>\n  <section class=\"sidebar-headers sidebar-sections\">\n    <h1>"
     + alias3(((helper = (helper = helpers.fullname || (depth0 != null ? depth0.fullname : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"fullname","hash":{},"data":data}) : helper)))
     + "</h1>\n    <h2>"
     + alias3(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"username","hash":{},"data":data}) : helper)))
-    + "</h2>\n  </section>\n  <section>\n    <ul>\n      <li><span class=\"octicon octicon-location\"></span>"
+    + "</h2>\n  </section>\n  <section class=\"sidebar-demographics sidebar-sections\">\n    <ul>\n      <li><span class=\"octicon octicon-location sidebar-icons\"></span>"
     + alias3(((helper = (helper = helpers.location || (depth0 != null ? depth0.location : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"location","hash":{},"data":data}) : helper)))
-    + "</li>\n      <li><span class=\"octicon octicon-link\" ></span><a href=\""
+    + "</li>\n      <li><span class=\"octicon octicon-link sidebar-icons\" ></span><a href=\""
     + alias3(((helper = (helper = helpers.blog || (depth0 != null ? depth0.blog : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"blog","hash":{},"data":data}) : helper)))
     + "\">"
     + alias3(((helper = (helper = helpers.blog || (depth0 != null ? depth0.blog : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"blog","hash":{},"data":data}) : helper)))
-    + "</a></li>\n      <li><span class=\"octicon octicon-clock\"></span><span>Joined on "
+    + "</a></li>\n      <li><span class=\"octicon octicon-clock sidebar-icons\"></span><span>Joined on "
     + alias3(((helper = (helper = helpers.joindate || (depth0 != null ? depth0.joindate : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"joindate","hash":{},"data":data}) : helper)))
-    + "</span></li>\n    </ul>\n  </section>\n  <section>\n    <ul>\n      <a href=\"https://github.com/"
+    + "</span></li>\n    </ul>\n  </section>\n  <section class=\"sidebar-stats sidebar-sections\">\n    <a href=\"https://github.com/"
     + alias3(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"username","hash":{},"data":data}) : helper)))
-    + "/followers\"><span>"
+    + "/followers\"><div class=\"sidebar-stats-number\"><b>"
     + alias3(((helper = (helper = helpers.followers || (depth0 != null ? depth0.followers : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"followers","hash":{},"data":data}) : helper)))
-    + " </span><span>Followers</span></a>\n      <a href=\"https://github.com/stars\"><span class=\"starred\"></span><span>Starred</span></a>\n      <a href=\"https://github.com/"
+    + "</b></div><div class=\"sidebar-stats-category\">Followers</div></a>\n    <a href=\"https://github.com/stars\"><div class=\"starred sidebar-stats-number\"></div><div class= \"sidebar-stats-category\">Starred</div></a>\n    <a href=\"https://github.com/"
     + alias3(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"username","hash":{},"data":data}) : helper)))
-    + "/following\"><span>"
+    + "/following\"><div class=\"sidebar-stats-number\"><b>"
     + alias3(((helper = (helper = helpers.following || (depth0 != null ? depth0.following : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"following","hash":{},"data":data}) : helper)))
-    + " </span><span>Following</span></a>\n    </ul>\n  </section>\n  <section class=\"organizations\">\n  </section>\n</sidebar><!--\n";
+    + "</b></div><div class=\"sidebar-stats-category\">Following</div></a>\n  </section>\n  <section class=\"organizations sidebar-sections\">\n  </section>\n</sidebar><!--\n";
 },"useData":true});
 this["JST"]["starred"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return this.escapeExpression(((helper = (helper = helpers.starred || (depth0 != null ? depth0.starred : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"starred","hash":{},"data":data}) : helper)))
-    + "\n";
+  return "<b>"
+    + this.escapeExpression(((helper = (helper = helpers.starred || (depth0 != null ? depth0.starred : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"starred","hash":{},"data":data}) : helper)))
+    + "</b>\n";
 },"useData":true});
 this["JST"]["title"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
