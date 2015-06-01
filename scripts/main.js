@@ -48,7 +48,7 @@
   }
 
   function displayNavbar(data) {
-    $('.main-container').append(JST['navbar']({
+    $('body').prepend(JST['navbar']({
       username: data.login,
       avatar: data.avatar_url
     }));

@@ -11,8 +11,16 @@ $medium-gray: #999;
 $light-gray: #ddd;
 $very-light-gray: #fafafa;
 
+$palleton-gray: #A0A0A0;
+$palleton-dark-grey: #8B8684;
+$palleton-charcoal: #8C7770;
+$palleton-brick: #A26A59;
+$palleton-orange: #E9491A;
+$palleton-peach: #F89889;
+
+
 $base-font-color: $dark-gray;
-$base-background-color: $very-light-gray;
+$base-background-color: #eeeeee;
 
 
 /*==========================================
@@ -25,9 +33,15 @@ body {
   color: $base-font-color;
 }
 
-.main-container {
+.main-container,
+.nav-container {
   margin: 0 auto;
   width: 1000px;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
 }
 
 /*==========================================
@@ -35,21 +49,64 @@ NAV
 ==========================================*/
 
 nav {
-  margin: 0 auto;
-  height: 50px;
   width: 100%;
+  background-color: #fff;
+  font-size: 13px;
+  font-family: arial;
+  font-weight: bold;
+}
+
+.nav-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+
+ nav a:hover {
+  color: $palleton-orange;
+}
+
+.nav-title {
+  color: $palleton-orange;
+}
+
+nav input {
+  width: 30%;
+  border: 1px solid $palleton-orange;
+  border-radius: 5spx;
+  font-weight: normal;
+}
+
+.nav-container > span {
+  font-style: italic;
+  padding-right: 10px;
 }
 
 nav img {
   height: 20px;
   width: 20px;
   border-radius: 3px;
+  vertical-align: middle;
 }
 
 .navbar-general,
 .navbar-userspecific {
   display: inline-block;
 }
+
+.navbar-userspecific {
+  float: right;
+}
+
+.nav-avatar {
+  margin-right: 5px;
+}
+
+.navbar-userspecific a,
+.sign-out {
+  padding-left: 15px;
+}
+
 
 /*==========================================
 SIDEBAR
@@ -58,6 +115,7 @@ SIDEBAR
 sidebar {
   display: inline-block;
   width: 25%;
+  margin-top: 20px;
 }
 
 sidebar img {
@@ -82,6 +140,7 @@ section.content {
   display: inline-block;
   vertical-align: top;
   width: 75%;
+  margin-top: 20px;
 }
 
 .content li {

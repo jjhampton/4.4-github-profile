@@ -1,4 +1,4 @@
-/*! jQuery UI - v1.11.4 - 2015-05-31
+/*! jQuery UI - v1.11.4 - 2015-06-01
 * http://jqueryui.com
 * Includes: core.js, widget.js, mouse.js, tabs.js
 * Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
