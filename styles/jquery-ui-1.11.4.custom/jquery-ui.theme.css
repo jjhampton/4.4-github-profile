@@ -29,12 +29,10 @@
 	font-size: 1em;
 }
 .ui-widget-content {
-	background-color: #ddd;
+	background-color: #EBEBEB;
 	color: #222222;
 }
-.ui-widget-content a {
-	color: #222222;
-}
+
 .ui-widget-header {
 	background: #f9f9f9 url("images/ui-bg_flat_100_f9f9f9_40x100.png") 50% 50% repeat-x;
 	color: #8B8684;
@@ -65,8 +63,8 @@
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border-bottom: 5px solid #ddd;
-	background: #ddd;
+	border-bottom: 5px solid #EBEBEB;
+	background: #EBEBEB;
 	font-weight: bold;
 	color: #ffffff;
 }
@@ -84,7 +82,7 @@
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border-bottom: 5px solid #ddd;
+	border-bottom: 5px solid #EBEBEB;
 	background: #E9491A url("images/ui-bg_flat_20_E9491A_40x100.png") 50% 50% repeat-x;
 	font-weight: bold;
 	color: #ffffff;

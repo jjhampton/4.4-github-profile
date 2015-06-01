@@ -248,6 +248,9 @@ section.content {
 
 .content-tabs {
   border: none;
+  font-size: 13px;
+  font-family: arial;
+  font-weight: bold;
 }
 
 .content-tabs li {
@@ -263,15 +266,49 @@ section.content {
 .edit-profile {
   float: right;
   height: 100%;
+  font-size: 13px;
+  font-family: arial;
+  font-weight: bold;
 }
 
 .repositories-search,
 .repositories-filter-types {
   display: inline-block;
+  font-size: 13px;
+  font-family: arial;
+  font-weight: bold;
+}
+
+#repositories,
+#contributions,
+#public-activity {
+  font-size: 13px;
+  font-family: arial;
+}
+
+.repositories-filter button {
+  font-size: 13px;
+  font-family: arial;
+  font-weight: bold;
+}
+
+.repository-info {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.repository-updated {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .repository-name {
   display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  color: $palleton-orange;
 }
 
 .repository-stats {
@@ -295,6 +332,13 @@ footer {
   position: relative;
   width: 100%;
   list-style-type: none;
+  border-top: 1px solid $palleton-orange;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 13px;
+  font-family: arial;
+  font-weight: bold;
 }
 
 footer ul,
@@ -304,12 +348,25 @@ footer span {
   padding: 0;
 }
 
+footer li {
+  padding: 5px;
+}
+
 footer span {
   position: absolute;
-  left: 55%;
-  top: 16px;
+  left: 50%;
 }
 
 footer ul.right {
   float: right;
+}
+
+.last-logo {
+  color: $palleton-orange
+}
+
+footer em {
+  color: #000;
+  font-style: italic;
+  padding-left: 10px;
 }
