@@ -29,13 +29,13 @@
 	font-size: 1em;
 }
 .ui-widget-content {
+	background-color: #ddd;
 	color: #222222;
 }
 .ui-widget-content a {
 	color: #222222;
 }
 .ui-widget-header {
-	border: 1px solid #75261A;
 	background: #f9f9f9 url("images/ui-bg_flat_100_f9f9f9_40x100.png") 50% 50% repeat-x;
 	color: #8B8684;
 	font-weight: bold;
@@ -49,7 +49,7 @@
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #F89889;
+	border-bottom: 1px solid #fff;
 	font-weight: bold;
 	color: #222222;
 }
@@ -65,7 +65,7 @@
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #F89889;
+	border-bottom: 5px solid #ddd;
 	background: #ddd;
 	font-weight: bold;
 	color: #ffffff;
@@ -84,7 +84,7 @@
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #F89889;
+	border-bottom: 5px solid #ddd;
 	background: #E9491A url("images/ui-bg_flat_20_E9491A_40x100.png") 50% 50% repeat-x;
 	font-weight: bold;
 	color: #ffffff;
@@ -97,14 +97,7 @@
 }
 
 /* Interaction Cues
-----------------------------------*/
-.ui-state-highlight,
-.ui-widget-content .ui-state-highlight,
-.ui-widget-header .ui-state-highlight {
-	border: 1px solid #F89889;
-	background: #c5ddfc url("images/ui-bg_flat_25_c5ddfc_40x100.png") 50% 50% repeat-x;
-	color: #333333;
-}
+----------------------------------*/}
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
 .ui-widget-header .ui-state-highlight a {
@@ -113,7 +106,6 @@
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
-	border: 1px solid #F89889;
 	background: #e69700 url("images/ui-bg_flat_20_e69700_40x100.png") 50% 50% repeat-x;
 	color: #ffffff;
 }
@@ -392,16 +384,16 @@
 }
 
 /* Overlays */
-.ui-widget-overlay {
+/* .ui-widget-overlay {
 	background: #e6b900 url("images/ui-bg_flat_0_e6b900_40x100.png") 50% 50% repeat-x;
 	opacity: .3;
-	filter: Alpha(Opacity=30); /* support: IE8 */
-}
-.ui-widget-shadow {
+	filter: Alpha(Opacity=30); support: IE8
+} */
+/* .ui-widget-shadow {
 	margin: 4px 0 0 2px;
 	padding: 0px;
 	background: #A0A0A0 url("images/ui-bg_flat_0_A0A0A0_40x100.png") 50% 50% repeat-x;
 	opacity: .1;
-	filter: Alpha(Opacity=10); /* support: IE8 */
+	filter: Alpha(Opacity=10); support: IE8
 	border-radius: 2px;
-}
+} */

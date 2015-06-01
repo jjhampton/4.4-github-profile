@@ -46,6 +46,10 @@ a, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
+*:focus {
+    outline: 0;
+}
+
 /*==========================================
 NAV
 ==========================================*/
@@ -242,8 +246,23 @@ section.content {
   list-style: none;
 }
 
+.content-tabs {
+  border: none;
+}
+
+.content-tabs li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 1px solid $palleton-orange;
+  border-left: 1px solid $palleton-orange;
+  border-right: 1px solid $palleton-orange;
+}
+
 .edit-profile {
   float: right;
+  height: 100%;
 }
 
 .repositories-search,
@@ -266,10 +285,7 @@ section.content {
   list-style: none;
 }
 
-button.edit-profile {
-  height: 21px;
-  vertical-align: baseline;
-}
+
 
 /*==========================================
 FOOTER
