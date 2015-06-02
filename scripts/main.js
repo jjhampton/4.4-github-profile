@@ -2,21 +2,11 @@
   'use strict';
 
   $(document).ready(function app(token){
-    $('body').prepend(JST['application']({loggedIn: !!GITHUB_TOKEN}));
-    // if there's a token, fetch the currently authed user
-    // if not, fetch my user explicitly
-    var hasToken = typeof(GITHUB_TOKEN) !== "undefined";
-    var userURL = "https://api.github.com/user" + (hasToken ? "" : "s/jjhampton");
-    var reposURL = "https://api.github.com/user" + (hasToken ? "/repos" : "s/jjhampton/repos");
-    var starredURL = "https://api.github.com/user" + (hasToken ? "/starred" : "s/jjhampton/starred");
-    var orgsURL = "https://api.github.com/user" + (hasToken ? "/orgs" : "s/jjhampton/orgs");
-    if(hasToken) {
-      $.ajaxSetup({
-        headers: {
-          "Authorization": "token " + GITHUB_TOKEN
-        }
-      });
-    }
+    $('body').prepend(JST['application']());
+    var userURL = "https://api.github.com/users/jjhampton";
+    var reposURL = "https://api.github.com/users/jjhampton/repos";
+    var starredURL = "https://api.github.com/users/jjhampton/starred";
+    var orgsURL = "https://api.github.com/users/jjhampton/orgs";
     $.ajax(userURL).then(function(user) {
       console.log(user);
       displayTitle(user);
@@ -165,31 +155,4 @@
   function displayFooter() {
     $('.main-container').append(JST['footer']());
   }
-
-  //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret
-  // $(document).ready(function(e){
-  //   var token = localStorage.getItem('GITHUB_TOKEN');
-  //   $('body').prepend(JST['application']({loggedIn: !!token}));
-  //   if(token) {
-  //     app(token);
-  //   } else {
-  //     var matches = window.location.href.match(/\?code=(.*)/);
-  //     var code = matches && matches[1];
-  //     if(code) {
-  //       $.getJSON('http://localhost:9999/authenticate/'+code, function(data) {
-  //         localStorage.setItem('GITHUB_TOKEN', data.token);
-  //         window.location.replace('/');
-  //       });
-  //     }
-  //   }
-  // });
-  //
-  //Event handler assignment for button to redirect users to request GitHub access
-  $(document).on('click', '.login', function(e){
-    window.location.replace('https://github.com/login/oauth/authorize?client_id=b69b801883e5ccf58196');
-  });
-
-
-
-
 })();
