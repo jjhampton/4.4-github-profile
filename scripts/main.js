@@ -1,44 +1,43 @@
 (function(){
   'use strict';
 
-  function app(token){
-    $.ajax({
-      url: "https://api.github.com/user",
-      headers: {
-       "Authorization": "token " + token
-      }
-    }).then(function(user) {
+  $(document).ready(function app(token){
+    $('body').prepend(JST['application']({loggedIn: !!GITHUB_TOKEN}));
+    // if there's a token, fetch the currently authed user
+    // if not, fetch my user explicitly
+    var hasToken = typeof(GITHUB_TOKEN) !== "undefined";
+    var userURL = "https://api.github.com/user" + (hasToken ? "" : "s/jjhampton");
+    var reposURL = "https://api.github.com/user" + (hasToken ? "/repos" : "s/jjhampton/repos");
+    var starredURL = "https://api.github.com/user" + (hasToken ? "/starred" : "s/jjhampton/starred");
+    var orgsURL = "https://api.github.com/user" + (hasToken ? "/orgs" : "s/jjhampton/orgs");
+    if(hasToken) {
+      $.ajaxSetup({
+        headers: {
+          "Authorization": "token " + GITHUB_TOKEN
+        }
+      });
+    }
+    $.ajax(userURL).then(function(user) {
+      console.log(user);
       displayTitle(user);
       displayNavbar(user);
       displaySidebar(user);
       displayContent(user);
       displayFooter();
-      $.ajax({
-        url: "https://api.github.com/user/starred",
-        headers: {
-          "Authorization": "token " + token
-        }
-      }).then(function(starred) {
+      $.ajax(starredURL).then(function(starred) {
+        console.log(starred);
         displaySidebarStarred(starred);
       });
-      $.ajax({
-        url: "https://api.github.com/user/orgs",
-        headers: {
-          "Authorization": "token " + token
-        }
-      }).then(function(organizations) {
-         displaySidebarOrganizations(organizations);
+      $.ajax(orgsURL).then(function(organizations) {
+        console.log(organizations);
+        displaySidebarOrganizations(organizations);
       });
-      $.ajax({
-        url: "https://api.github.com/user/repos",
-        headers: {
-          "Authorization": "token " + token
-        }
-      }).then(function(repositories) {
+      $.ajax(reposURL).then(function(repositories) {
+        console.log(repositories);
         displayRepositories(repositories);
       });
     });
-  }
+  });
 
   function displayTitle(data) {
     $('title').prepend(JST['title']({
@@ -120,11 +119,9 @@
       newElement.updatedFromNowValue = getUpdatedFromNowVal(newElement.updatedAtDateObject);
       return newElement;
     });
-    console.log(sortedArray);
     sortedArray = sortedArray.sort(function(a,b) {
       return b.updatedAtDateObject - a.updatedAtDateObject;
     });
-    console.log(sortedArray);
     return sortedArray;
   }
 
@@ -140,11 +137,7 @@
       month: 'long',
       day: 'numeric'
     };
-    console.log("now is " + now);
-    console.log("updatedDateUTC is " + updatedDateUTC);
-    console.log(timeDifference);
     timeDifference = Math.floor(timeDifference / 60000); //convert to minutes
-    console.log(timeDifference + " converted to minutes");
 
     if (timeDifference <= 60) {
       timeFromNow = timeDifference + " minutes ago";
@@ -174,23 +167,23 @@
   }
 
   //Grab temporary code from GitHub and request token from Gatekeeper, which knows client_secret
-  $(document).ready(function(e){
-    var token = localStorage.getItem('GITHUB_TOKEN');
-    $('body').prepend(JST['application']({loggedIn: !!token}));
-    if(token) {
-      app(token);
-    } else {
-      var matches = window.location.href.match(/\?code=(.*)/);
-      var code = matches && matches[1];
-      if(code) {
-        $.getJSON('http://localhost:9999/authenticate/'+code, function(data) {
-          localStorage.setItem('GITHUB_TOKEN', data.token);
-          window.location.replace('/');
-        });
-      }
-    }
-  });
-
+  // $(document).ready(function(e){
+  //   var token = localStorage.getItem('GITHUB_TOKEN');
+  //   $('body').prepend(JST['application']({loggedIn: !!token}));
+  //   if(token) {
+  //     app(token);
+  //   } else {
+  //     var matches = window.location.href.match(/\?code=(.*)/);
+  //     var code = matches && matches[1];
+  //     if(code) {
+  //       $.getJSON('http://localhost:9999/authenticate/'+code, function(data) {
+  //         localStorage.setItem('GITHUB_TOKEN', data.token);
+  //         window.location.replace('/');
+  //       });
+  //     }
+  //   }
+  // });
+  //
   //Event handler assignment for button to redirect users to request GitHub access
   $(document).on('click', '.login', function(e){
     window.location.replace('https://github.com/login/oauth/authorize?client_id=b69b801883e5ccf58196');
