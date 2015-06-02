@@ -86,9 +86,7 @@
       contributionsurl: data.html_url
     }));
     $("#tabs").tabs({
-      activate: function (event, ui) {
-        var active = $("#tabs").tabs("option", "active");
-      }
+      active: 1
     });
   }
 
