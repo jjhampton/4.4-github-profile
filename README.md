@@ -17,4 +17,5 @@ I built this in week 4 at The Iron Yard Academy to practice  breaking down a com
 
 
 ##Install Dependencies:
-`$ bower install`
+* Initial install script at https://github.com/jacobthemyth/cool-scaffolding
+* `$ bower install`
